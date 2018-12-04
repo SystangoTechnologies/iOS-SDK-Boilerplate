@@ -1,0 +1,6 @@
+framework module Pods_SDKBoilerPlate {
+  umbrella header "Pods-SDKBoilerPlate-umbrella.h"
+
+  export *
+  module * { export * }
+}
