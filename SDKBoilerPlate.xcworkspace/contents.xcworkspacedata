@@ -2,13 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/stplmacmini14/Workspace/SDK-BoilerPlate/SDK-BoilerPlate/SDK-BoilerPlate.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SDK-BoilerPlate.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:SDKBoilerPlate.xcodeproj">
