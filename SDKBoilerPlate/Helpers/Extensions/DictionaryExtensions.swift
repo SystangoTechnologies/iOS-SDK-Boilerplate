@@ -16,14 +16,14 @@ public extension Dictionary {
 	///
 	/// - Parameter key: key to search for
 	/// - Returns: true if key exists in dictionary.
-	public func has(key: Key) -> Bool {
+    func has(key: Key) -> Bool {
 		return index(forKey: key) != nil
 	}
 	
     /// SwifterSwift: Remove all keys of the dictionary.
     ///
     /// - Parameter keys: keys to be removed
-    public mutating func removeAll(keys: [Key]) {
+    mutating func removeAll(keys: [Key]) {
         keys.forEach({ removeValue(forKey: $0)})
     }
     
@@ -31,7 +31,7 @@ public extension Dictionary {
 	///
 	/// - Parameter prettify: set true to prettify data (default is false).
 	/// - Returns: optional JSON Data (if applicable).
-	public func jsonData(prettify: Bool = false) -> Data? {
+    func jsonData(prettify: Bool = false) -> Data? {
 		guard JSONSerialization.isValidJSONObject(self) else {
 			return nil
 		}
@@ -50,7 +50,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: dictionary
     /// - Returns: An dictionary with keys and values from both.
-    public static func +(lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
+    static func +(lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
         var result = lhs
         rhs.forEach{ result[$0] = $1 }
         return result
@@ -63,7 +63,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: dictionary
-    public static func +=(lhs: inout [Key: Value], rhs: [Key: Value]) {
+    static func +=(lhs: inout [Key: Value], rhs: [Key: Value]) {
         rhs.forEach({ lhs[$0] = $1})
     }
     
@@ -74,7 +74,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
     /// - Returns: a new dictionary with keys removed.
-    public static func -(lhs: [Key: Value], keys: [Key]) -> [Key: Value]{
+    static func -(lhs: [Key: Value], keys: [Key]) -> [Key: Value]{
         var result = lhs
         result.removeAll(keys: keys)
         return result
@@ -85,7 +85,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
-    public static func -=(lhs: inout [Key: Value], keys: [Key]) {
+    static func -=(lhs: inout [Key: Value], keys: [Key]) {
         lhs.removeAll(keys: keys)
     }
 
@@ -96,7 +96,7 @@ public extension Dictionary {
 public extension Dictionary where Key: ExpressibleByStringLiteral {
 	
 	/// SwifterSwift: Lowercase all keys in dictionary.
-	public mutating func lowercaseAllKeys() {
+    mutating func lowercaseAllKeys() {
 		// http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
 		for key in keys {
 			if let lowercaseKey = String(describing: key).lowercased() as? Key {
